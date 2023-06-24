@@ -1,0 +1,28 @@
+ <div class="container">
+   <div class="row mt-4  " >
+    <div class="col-lg-8 offset-lg-2">
+      <input  class="form-control  form-control-lg"  [(ngModel)]="agregar" type="text" (keyup.enter)="agregarLista()" placeholder="Escribir tarea" >
+    </div>
+
+    <div class="col-lg-6 offset-lg-3 my-2 ">
+      <div class="card" >
+        <h1  class="text-center" *ngIf="listaTarea.length == 0" >No hay tareas</h1>
+
+      </div>
+      <ul class="list-group  " >
+        <li class="list-group-item d-flex justify-content-between  " *ngFor=" let tarea of listaTarea;let i=index  ">
+        <span class="estado" (click)="estado(i,tarea)"  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
+          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
+        </svg></span>
+
+          {{tarea.nombre + tarea.estado }}
+          <span class="trash"  (click)="borrar(i)" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+          </svg> </span>
+        </li>
+
+      </ul>
+    </div>
+   </div>
+ </div>
+ 
